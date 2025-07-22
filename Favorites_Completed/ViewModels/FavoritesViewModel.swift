@@ -28,6 +28,9 @@ class FavoritesViewModel : ObservableObject {
         cityManager.filteredItems(items: cities, searchText: searchText)
     }
     
+    func filteredBooks(searchText: String) -> [BookModel] {
+        bookManager.filteredItems(items: books, searchText: searchText)
+    }
     func toggleFavoriteCity(city: CityModel) {
         cityManager.toggleFavorite(items: &cities, targetItem: city)
     }
@@ -40,9 +43,14 @@ class FavoritesViewModel : ObservableObject {
         hobbyManager.toggleFavorite(items: &hobbies, targetItem: hobby)
     }
     
+    func toggleFavoriteBook(_ book: BookModel) {
+        bookManager.toggleFavorite(items: &books, targetItem: book)
+    }
+    
     func clearAllFavorites() {
         cityManager.clearFavorites(items: &cities)
         hobbyManager.clearFavorites(items: &hobbies)
+        bookManager.clearFavorites(items: &books)
     }
     
     

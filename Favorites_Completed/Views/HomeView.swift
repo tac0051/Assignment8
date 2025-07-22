@@ -41,10 +41,13 @@ struct HomeView: View {
     
     @ViewBuilder
     private func selectedContentView() -> some View {
-        if selectedCategory == .cities {
+        switch selectedCategory {
+        case .cities:
             CitiesView(searchText: $searchText)
-        } else if selectedCategory == .hobbies {
+        case .hobbies:
             HobbiesView(searchText: $searchText)
+        case .books:
+            BooksView(searchText: $searchText)
         }
     }
     
